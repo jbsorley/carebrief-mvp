@@ -33,7 +33,6 @@
     flex-direction: column;
   }
 
-  /* ── HEADER ── */
   header {
     background: var(--white);
     border-bottom: 1px solid var(--teal-mid);
@@ -54,10 +53,7 @@
   }
   .logo span { color: var(--navy); font-weight: 300; }
 
-  .mode-select {
-    display: flex;
-    gap: 6px;
-  }
+  .mode-select { display: flex; gap: 6px; }
   .mode-btn {
     padding: 6px 14px;
     border-radius: 20px;
@@ -69,392 +65,104 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-  .mode-btn.active {
-    background: var(--teal);
-    border-color: var(--teal);
-    color: white;
-  }
-  .mode-btn:hover:not(.active) {
-    border-color: var(--teal);
-    color: var(--teal);
-  }
+  .mode-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
+  .mode-btn:hover:not(.active) { border-color: var(--teal); color: var(--teal); }
 
-  /* ── LAYOUT ── */
   .app-layout {
-    display: flex;
-    flex: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px 16px;
-    gap: 20px;
-    align-items: flex-start;
+    display: flex; flex: 1; max-width: 1100px; margin: 0 auto;
+    width: 100%; padding: 20px 16px; gap: 20px; align-items: flex-start;
   }
 
-  /* ── CHAT PANEL ── */
   .chat-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    min-height: calc(100vh - 120px);
-    max-height: calc(100vh - 120px);
+    flex: 1; display: flex; flex-direction: column;
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden;
+    min-height: calc(100vh - 120px); max-height: calc(100vh - 120px);
   }
 
-  .chat-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--teal-light);
-    background: var(--teal-light);
-  }
-  .chat-header h2 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--teal);
-  }
-  .chat-header p {
-    font-size: 12px;
-    color: var(--gray);
-    margin-top: 2px;
-  }
+  .chat-header { padding: 16px 20px; border-bottom: 1px solid var(--teal-light); background: var(--teal-light); }
+  .chat-header h2 { font-size: 15px; font-weight: 700; color: var(--teal); }
+  .chat-header p { font-size: 12px; color: var(--gray); margin-top: 2px; }
 
-  .progress-bar-wrap {
-    margin-top: 10px;
-    display: flex;
-    gap: 6px;
-    align-items: center;
-  }
-  .section-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--teal-mid);
-    transition: background 0.4s;
-    flex-shrink: 0;
-  }
+  .progress-bar-wrap { margin-top: 10px; display: flex; gap: 6px; align-items: center; }
+  .section-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-mid); transition: background 0.4s; flex-shrink: 0; }
   .section-dot.done { background: var(--teal); }
   .section-dot.current { background: var(--accent); }
-  .section-label {
-    font-size: 11px;
-    color: var(--gray);
-    margin-left: 4px;
-  }
+  .section-label { font-size: 11px; color: var(--gray); margin-left: 4px; }
 
-  .messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    scroll-behavior: smooth;
-  }
+  .messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
 
-  .message {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    animation: fadeIn 0.3s ease;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  .message { display: flex; gap: 10px; align-items: flex-start; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   .message.user { flex-direction: row-reverse; }
 
-  .avatar {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
-  }
-  .avatar.ai {
-    background: var(--teal);
-    color: white;
-  }
-  .avatar.user {
-    background: var(--navy);
-    color: white;
-  }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .avatar.ai { background: var(--teal); color: white; }
+  .avatar.user { background: var(--navy); color: white; }
 
-  .bubble {
-    max-width: 82%;
-    padding: 12px 16px;
-    border-radius: 16px;
-    font-size: 14px;
-    line-height: 1.65;
-  }
-  .message.ai .bubble {
-    background: var(--teal-light);
-    color: var(--navy);
-    border-bottom-left-radius: 4px;
-  }
-  .message.user .bubble {
-    background: var(--teal);
-    color: white;
-    border-bottom-right-radius: 4px;
-  }
+  .bubble { max-width: 82%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.65; }
+  .message.ai .bubble { background: var(--teal-light); color: var(--navy); border-bottom-left-radius: 4px; }
+  .message.user .bubble { background: var(--teal); color: white; border-bottom-right-radius: 4px; }
 
-  .typing-indicator .bubble {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    padding: 14px 16px;
-  }
-  .typing-dot {
-    width: 7px; height: 7px;
-    background: var(--teal);
-    border-radius: 50%;
-    animation: typingBounce 1.2s infinite;
-  }
+  .typing-indicator .bubble { display: flex; gap: 4px; align-items: center; padding: 14px 16px; }
+  .typing-dot { width: 7px; height: 7px; background: var(--teal); border-radius: 50%; animation: typingBounce 1.2s infinite; }
   .typing-dot:nth-child(2) { animation-delay: 0.2s; }
   .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes typingBounce {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-6px); }
-  }
+  @keyframes typingBounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
 
-  /* ── CRISIS BOX ── */
-  .crisis-box {
-    background: var(--crisis-bg);
-    border: 2px solid var(--crisis);
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    margin-top: 10px;
-  }
-  .crisis-box h4 {
-    color: var(--crisis);
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .crisis-box a {
-    display: block;
-    color: var(--crisis);
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    text-decoration: none;
-  }
+  .crisis-box { background: var(--crisis-bg); border: 2px solid var(--crisis); border-radius: var(--radius-sm); padding: 14px 16px; margin-top: 10px; }
+  .crisis-box h4 { color: var(--crisis); font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .crisis-box a { display: block; color: var(--crisis); font-size: 13px; font-weight: 600; margin-bottom: 4px; text-decoration: none; }
   .crisis-box a:hover { text-decoration: underline; }
 
-  /* ── INPUT ── */
-  .input-area {
-    padding: 16px 20px;
-    border-top: 1px solid var(--teal-light);
-    display: flex;
-    gap: 10px;
-    align-items: flex-end;
-    background: var(--white);
-  }
+  .input-area { padding: 16px 20px; border-top: 1px solid var(--teal-light); display: flex; gap: 10px; align-items: flex-end; background: var(--white); }
 
-  textarea {
-    flex: 1;
-    resize: none;
-    border: 1.5px solid var(--teal-mid);
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 14px;
-    font-family: inherit;
-    color: var(--navy);
-    line-height: 1.5;
-    min-height: 46px;
-    max-height: 140px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
+  textarea { flex: 1; resize: none; border: 1.5px solid var(--teal-mid); border-radius: 12px; padding: 12px 14px; font-size: 14px; font-family: inherit; color: var(--navy); line-height: 1.5; min-height: 46px; max-height: 140px; outline: none; transition: border-color 0.2s; }
   textarea:focus { border-color: var(--teal); }
   textarea::placeholder { color: #9CA3AF; }
 
-  .send-btn {
-    width: 46px; height: 46px;
-    background: var(--teal);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.2s, transform 0.1s;
-    color: white;
-  }
+  .send-btn { width: 46px; height: 46px; background: var(--teal); border: none; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.1s; color: white; }
   .send-btn:hover { background: var(--teal-dark); }
   .send-btn:active { transform: scale(0.95); }
   .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
   .send-btn svg { width: 20px; height: 20px; }
 
-  /* ── BRIEF PANEL ── */
-  .brief-panel {
-    width: 340px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
-
-  .brief-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-
-  .brief-card-header {
-    background: var(--teal);
-    color: white;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .brief-panel { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .brief-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .brief-card-header { background: var(--teal); color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
   .brief-card-header h3 { font-size: 14px; font-weight: 700; }
-  .brief-card-header .status {
-    font-size: 11px;
-    opacity: 0.8;
-  }
-
-  .brief-sections {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .brief-section-item {
-    padding: 10px 12px;
-    border-radius: var(--radius-sm);
-    background: var(--gray-light);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--gray);
-    transition: all 0.3s;
-  }
-  .brief-section-item.done {
-    background: var(--teal-light);
-    color: var(--teal-dark);
-    font-weight: 600;
-  }
-  .brief-section-item.active {
-    background: #FFF8EC;
-    color: #92400E;
-    font-weight: 600;
-  }
+  .brief-card-header .status { font-size: 11px; opacity: 0.8; }
+  .brief-sections { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .brief-section-item { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--gray-light); display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--gray); transition: all 0.3s; }
+  .brief-section-item.done { background: var(--teal-light); color: var(--teal-dark); font-weight: 600; }
+  .brief-section-item.active { background: #FFF8EC; color: #92400E; font-weight: 600; }
   .section-icon { font-size: 14px; flex-shrink: 0; }
 
-  .download-area {
-    padding: 14px;
-    border-top: 1px solid var(--teal-light);
-  }
-
-  .download-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--teal);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: background 0.2s, transform 0.1s;
-  }
+  .download-area { padding: 14px; border-top: 1px solid var(--teal-light); }
+  .download-btn { width: 100%; padding: 12px; background: var(--teal); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.1s; }
   .download-btn:hover { background: var(--teal-dark); }
   .download-btn:active { transform: scale(0.98); }
   .download-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-  .generate-btn {
-    width: 100%;
-    padding: 12px;
-    background: white;
-    color: var(--teal);
-    border: 2px solid var(--teal);
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: all 0.2s;
-  }
+  .generate-btn { width: 100%; padding: 12px; background: white; color: var(--teal); border: 2px solid var(--teal); border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; margin-top: 8px; transition: all 0.2s; }
   .generate-btn:hover { background: var(--teal-light); }
 
-  /* ── INTRO SCREEN ── */
-  .intro-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 80px);
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .intro-logo {
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--teal);
-    letter-spacing: -1px;
-    margin-bottom: 8px;
-  }
-  .intro-tagline {
-    font-size: 16px;
-    color: var(--gray);
-    margin-bottom: 40px;
-    max-width: 420px;
-    line-height: 1.6;
-  }
-
-  .mode-cards {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 700px;
-    margin-bottom: 32px;
-  }
-
-  .mode-card {
-    background: white;
-    border: 2px solid var(--teal-mid);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    width: 200px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s;
-    box-shadow: var(--shadow);
-  }
-  .mode-card:hover {
-    border-color: var(--teal);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(13,115,119,0.15);
-  }
+  .intro-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 80px); padding: 40px 20px; text-align: center; }
+  .intro-logo { font-size: 32px; font-weight: 800; color: var(--teal); letter-spacing: -1px; margin-bottom: 8px; }
+  .intro-tagline { font-size: 16px; color: var(--gray); margin-bottom: 40px; max-width: 420px; line-height: 1.6; }
+  .mode-cards { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; max-width: 700px; margin-bottom: 32px; }
+  .mode-card { background: white; border: 2px solid var(--teal-mid); border-radius: var(--radius); padding: 24px 20px; width: 200px; cursor: pointer; text-align: center; transition: all 0.2s; box-shadow: var(--shadow); }
+  .mode-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(13,115,119,0.15); }
   .mode-card .card-icon { font-size: 32px; margin-bottom: 12px; }
   .mode-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .mode-card p { font-size: 12px; color: var(--gray); line-height: 1.5; }
+  .intro-note { font-size: 12px; color: var(--gray); max-width: 380px; line-height: 1.6; }
 
-  .intro-note {
-    font-size: 12px;
-    color: var(--gray);
-    max-width: 380px;
-    line-height: 1.6;
-  }
+  .legal-box { max-width: 520px; background: var(--white); border: 1.5px solid var(--teal-mid); border-radius: var(--radius-sm); padding: 16px 20px; font-size: 12px; color: var(--gray); line-height: 1.7; text-align: left; margin-top: 8px; }
+  .legal-box strong { color: var(--navy); }
+  .legal-footer { text-align: center; padding: 12px 20px; font-size: 11px; color: var(--gray); border-top: 1px solid var(--teal-mid); background: var(--white); line-height: 1.6; }
+  .legal-footer a { color: var(--teal); text-decoration: none; }
+  .legal-footer a:hover { text-decoration: underline; }
 
-  /* ── MOBILE ── */
   @media (max-width: 700px) {
     .brief-panel { display: none; }
     .app-layout { padding: 12px 8px; }
@@ -464,21 +172,8 @@
     .mode-card { width: 100%; max-width: 320px; }
   }
 
-  /* ── BRIEF PREVIEW ── */
-  .brief-preview {
-    padding: 14px;
-    max-height: 300px;
-    overflow-y: auto;
-    font-size: 12px;
-    color: var(--navy);
-    line-height: 1.7;
-    white-space: pre-wrap;
-    font-family: 'Georgia', serif;
-    display: none;
-  }
+  .brief-preview { padding: 14px; max-height: 300px; overflow-y: auto; font-size: 12px; color: var(--navy); line-height: 1.7; white-space: pre-wrap; font-family: 'Georgia', serif; display: none; }
   .brief-preview.visible { display: block; }
-
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--teal-mid); border-radius: 2px; }
@@ -491,7 +186,6 @@
   <div class="intro-screen">
     <div class="intro-logo">care brief</div>
     <p class="intro-tagline">You know your loved one better than any form ever could. Let's build something that proves it.</p>
-
     <div class="mode-cards">
       <div class="mode-card" onclick="startMode('history')">
         <div class="card-icon">📋</div>
@@ -509,8 +203,11 @@
         <p>Capture what happened before the blur wins.</p>
       </div>
     </div>
-
-    <p class="intro-note">Care Brief helps you organize and communicate what you already know. Not medical advice — just your voice, carried further.</p>
+    <div class="legal-box">
+      <p><strong>Before you begin:</strong> Care Brief is a conversational organizing tool for caregivers. It is <strong>not a medical service</strong>, a licensed clinical tool, or a substitute for professional medical, psychological, or legal advice. Nothing produced by Care Brief should be treated as a diagnosis, clinical recommendation, or medical record.</p>
+      <p style="margin-top:8px">If you or someone you care for is in immediate danger, call <strong>911</strong>. For mental health crisis support, call or text <strong>988</strong>.</p>
+      <p style="margin-top:8px;opacity:0.8">By continuing, you acknowledge that Care Brief is an organizational aid only.</p>
+    </div>
   </div>
 </div>
 
@@ -518,72 +215,51 @@
 <div id="mainApp" style="display:none; flex-direction:column; flex:1;">
   <header>
     <div class="logo">care brief<span>.ai</span></div>
-    <div class="mode-select">
-      <button class="mode-btn active" id="modeLabel">History Brief</button>
-    </div>
+    <div class="mode-select"><button class="mode-btn active" id="modeLabel">History Brief</button></div>
     <button onclick="resetApp()" style="background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:12px;">← Start over</button>
   </header>
-
   <div class="app-layout">
-    <!-- CHAT -->
     <div class="chat-panel">
       <div class="chat-header">
         <h2 id="chatTitle">History Brief</h2>
         <p id="chatSubtitle">Built once, updated always.</p>
         <div class="progress-bar-wrap" id="progressBar"></div>
       </div>
-
       <div class="messages" id="messages"></div>
-
       <div class="input-area">
-        <textarea
-          id="userInput"
-          placeholder="Type your response here..."
-          rows="1"
-          onkeydown="handleKey(event)"
-          oninput="autoResize(this)"
-        ></textarea>
+        <textarea id="userInput" placeholder="Type your response here..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
         <button class="send-btn" id="sendBtn" onclick="sendMessage()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
         </button>
       </div>
     </div>
-
-    <!-- BRIEF PANEL -->
     <div class="brief-panel">
       <div class="brief-card">
-        <div class="brief-card-header">
-          <h3>Your Brief</h3>
-          <span class="status" id="briefStatus">Building...</span>
-        </div>
-
+        <div class="brief-card-header"><h3>Your Brief</h3><span class="status" id="briefStatus">Building...</span></div>
         <div class="brief-sections" id="briefSections"></div>
-
         <div class="brief-preview" id="briefPreview"></div>
-
         <div class="download-area">
           <button class="download-btn" id="downloadBtn" onclick="downloadBrief()" disabled>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
             Download as PDF
           </button>
-          <button class="generate-btn" id="generateBtn" onclick="requestBrief()">
-            Generate my brief now →
-          </button>
+          <button class="generate-btn" id="generateBtn" onclick="requestBrief()">Generate my brief now →</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="legal-footer" id="legalFooter" style="display:none">
+  Care Brief is not a medical service, clinical tool, or substitute for professional advice. Nothing here constitutes medical advice, a diagnosis, or a clinical recommendation. &nbsp;|&nbsp;
+  <strong>In immediate danger? Call <a href="tel:911">911</a>.</strong> &nbsp;|&nbsp;
+  Mental health crisis? Call or text <a href="tel:988">988</a>. &nbsp;|&nbsp;
+  <a href="sms:741741">Text HOME to 741741</a> for Crisis Text Line. &nbsp;|&nbsp;
+  carebrief.ai
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-// ─────────────────────────────
-// STATE
-// ─────────────────────────────
 let messages = [];
 let currentMode = 'history';
 let completedSections = new Set();
@@ -600,36 +276,27 @@ const SECTIONS = [
   { icon: '🏥', label: 'Care Team' },
   { icon: '🌿', label: 'The Caregiver' },
 ];
-
 const MODE_CONFIG = {
   history: { title: 'History Brief', subtitle: 'Built once, updated always.' },
   visit: { title: 'Visit Brief', subtitle: 'For your upcoming appointment.' },
   debrief: { title: 'Debrief', subtitle: 'Capture it before the blur wins.' },
 };
 
-// ─────────────────────────────
-// INIT
-// ─────────────────────────────
 function startMode(mode) {
   currentMode = mode;
   document.getElementById('introScreen').style.display = 'none';
   document.getElementById('mainApp').style.display = 'flex';
-
+  document.getElementById('legalFooter').style.display = 'block';
   const cfg = MODE_CONFIG[mode];
   document.getElementById('chatTitle').textContent = cfg.title;
   document.getElementById('chatSubtitle').textContent = cfg.subtitle;
   document.getElementById('modeLabel').textContent = cfg.title;
-
   renderSections();
   startConversation();
 }
 
 function resetApp() {
-  messages = [];
-  completedSections = new Set();
-  currentSection = 0;
-  briefText = '';
-  isLoading = false;
+  messages = []; completedSections = new Set(); currentSection = 0; briefText = ''; isLoading = false;
   document.getElementById('messages').innerHTML = '';
   document.getElementById('briefPreview').classList.remove('visible');
   document.getElementById('briefPreview').textContent = '';
@@ -639,16 +306,12 @@ function resetApp() {
   document.getElementById('mainApp').style.display = 'none';
 }
 
-// ─────────────────────────────
-// CONVERSATION
-// ─────────────────────────────
 async function startConversation() {
   const openingMessage = currentMode === 'history'
     ? "I'm glad you're here.\n\nBefore we start — a quick note: Care Brief helps you organize and communicate what you already know. I'm not a medical professional and nothing I produce should be treated as medical advice, a diagnosis, or a clinical recommendation. I'm here to help your voice be heard more clearly.\n\nReady?"
     : currentMode === 'visit'
     ? "Welcome back.\n\nBefore we start — Care Brief is not a medical professional and nothing here is medical advice. I'm here to help your voice be heard more clearly.\n\nLet's get you ready for this appointment. Ready?"
     : "You just did something hard. Before the blur takes over, let's capture it.\n\nCare Brief is not a medical professional — nothing here is medical advice. I'm just here to help you make sense of what happened.\n\nReady?";
-
   addMessage('ai', openingMessage);
 }
 
@@ -656,53 +319,40 @@ async function sendMessage() {
   const input = document.getElementById('userInput');
   const text = input.value.trim();
   if (!text || isLoading) return;
-
-  input.value = '';
-  input.style.height = 'auto';
+  input.value = ''; input.style.height = 'auto';
   addMessage('user', text);
   messages.push({ role: 'user', content: text });
-
   await getAIResponse();
 }
 
 async function getAIResponse() {
   isLoading = true;
   document.getElementById('sendBtn').disabled = true;
-
   const typingId = showTyping();
-
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages, mode: currentMode }),
     });
-
     if (!response.ok) throw new Error('API error');
     const data = await response.json();
-    const aiText = data.content;
-
     removeTyping(typingId);
-    processAIResponse(aiText);
-
+    processAIResponse(data.content);
   } catch (err) {
     removeTyping(typingId);
     addMessage('ai', "Something went wrong — I'm sorry about that. Please try sending your message again.");
     console.error(err);
   }
-
   isLoading = false;
   document.getElementById('sendBtn').disabled = false;
   document.getElementById('userInput').focus();
 }
 
 function processAIResponse(text) {
-  // Check for crisis
   if (text.includes('[CRISIS_DETECTED]')) {
-    const cleanText = text.replace('[CRISIS_DETECTED]', '').trim();
-    addMessage('ai', cleanText, true);
+    addMessage('ai', text.replace('[CRISIS_DETECTED]', '').trim(), true);
   } else {
-    // Check for section completions
     const sectionMatch = text.match(/\[SECTION_COMPLETE: ([^\]]+)\]/g);
     if (sectionMatch) {
       sectionMatch.forEach(match => {
@@ -712,14 +362,10 @@ function processAIResponse(text) {
       });
       renderSections();
     }
-
-    // Check for brief ready
     if (text.includes('[BRIEF_READY]')) {
       document.getElementById('briefStatus').textContent = 'Ready to generate';
       document.getElementById('generateBtn').style.fontWeight = '800';
     }
-
-    // Check for full brief
     if (text.includes('---BRIEF_START---')) {
       const start = text.indexOf('---BRIEF_START---') + 17;
       const end = text.indexOf('---BRIEF_END---');
@@ -732,54 +378,48 @@ function processAIResponse(text) {
         document.getElementById('downloadBtn').disabled = false;
       }
     }
-
     const cleanText = text
       .replace(/\[SECTION_COMPLETE: [^\]]+\]/g, '')
       .replace(/\[BRIEF_READY\]/g, '')
       .replace(/---BRIEF_START---[\s\S]*?---BRIEF_END---/g, '✓ Your brief is ready. Click "Download as PDF" to save it.')
       .trim();
-
     addMessage('ai', cleanText);
   }
-
   messages.push({ role: 'assistant', content: text });
 }
 
-// ─────────────────────────────
-// UI HELPERS
-// ─────────────────────────────
 function addMessage(role, text, isCrisis = false) {
-  const messages = document.getElementById('messages');
+  const msgs = document.getElementById('messages');
   const div = document.createElement('div');
   div.className = `message ${role}`;
-
   const avatar = document.createElement('div');
   avatar.className = `avatar ${role}`;
   avatar.textContent = role === 'ai' ? 'CB' : 'You';
-
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
-
-  // Format text - convert newlines
-  bubble.innerHTML = text.replace(/\n/g, '<br>');
-
+  const formatted = text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br>');
+  bubble.innerHTML = formatted;
   if (isCrisis) {
     const crisisBox = document.createElement('div');
     crisisBox.className = 'crisis-box';
     crisisBox.innerHTML = `
-      <h4>🆘 Crisis Resources — Available Right Now</h4>
-      <a href="tel:988">988 Suicide & Crisis Lifeline — call or text 988</a>
+      <h4>🆘 You don't have to carry this alone — help is available right now</h4>
+      <a href="tel:911"><strong>911</strong> — If you or someone is in immediate danger, call 911 now</a>
+      <a href="tel:988"><strong>988</strong> Suicide & Crisis Lifeline — call or text 988 (free, 24/7)</a>
       <a href="sms:741741">Crisis Text Line — text HOME to 741741</a>
-      <a href="tel:18009506264">NAMI Helpline — 1-800-950-6264</a>
+      <a href="tel:18009506264">NAMI Helpline (caregiver-specific) — 1-800-950-6264</a>
       <a href="tel:18552273640">Caregiver Action Network — 1-855-227-3640</a>
+      <p style="margin-top:10px;font-size:11px;color:#991B1B">Care Brief is not a crisis service. Please reach out to a real person right now.</p>
     `;
     bubble.appendChild(crisisBox);
   }
-
   div.appendChild(avatar);
   div.appendChild(bubble);
-  messages.appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
 function showTyping() {
@@ -787,45 +427,27 @@ function showTyping() {
   const div = document.createElement('div');
   div.className = 'message ai typing-indicator';
   div.id = 'typing-' + Date.now();
-  div.innerHTML = `
-    <div class="avatar ai">CB</div>
-    <div class="bubble">
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-    </div>
-  `;
+  div.innerHTML = `<div class="avatar ai">CB</div><div class="bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   return div.id;
 }
-
-function removeTyping(id) {
-  const el = document.getElementById(id);
-  if (el) el.remove();
-}
+function removeTyping(id) { const el = document.getElementById(id); if (el) el.remove(); }
 
 function renderSections() {
   const container = document.getElementById('briefSections');
-
   if (currentMode !== 'history') {
     container.innerHTML = '<div style="padding:10px;font-size:12px;color:#6B7280">Capturing your appointment...</div>';
     return;
   }
-
   container.innerHTML = SECTIONS.map((s, i) => {
     const isDone = completedSections.has(i);
     const isActive = !isDone && i === Math.min(currentSection, SECTIONS.length - 1);
     let cls = 'brief-section-item';
     if (isDone) cls += ' done';
     else if (isActive) cls += ' active';
-    return `<div class="${cls}">
-      <span class="section-icon">${isDone ? '✓' : isActive ? '→' : s.icon}</span>
-      <span>${s.label}</span>
-    </div>`;
+    return `<div class="${cls}"><span class="section-icon">${isDone ? '✓' : isActive ? '→' : s.icon}</span><span>${s.label}</span></div>`;
   }).join('');
-
-  // Progress dots in header
   const bar = document.getElementById('progressBar');
   if (currentMode === 'history') {
     bar.innerHTML = SECTIONS.map((s, i) => {
@@ -849,121 +471,61 @@ async function requestBrief() {
   await getAIResponse();
 }
 
-// ─────────────────────────────
-// PDF DOWNLOAD
-// ─────────────────────────────
 function downloadBrief() {
   if (!briefText) return;
-
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-
-  const margin = 20;
-  const pageWidth = 210;
-  const contentWidth = pageWidth - margin * 2;
+  const margin = 20, pageWidth = 210, contentWidth = pageWidth - margin * 2;
   let y = 20;
-
-  // Header
-  doc.setFillColor(13, 115, 119);
-  doc.rect(0, 0, 210, 22, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFontSize(16);
-  doc.setFont('helvetica', 'bold');
+  doc.setFillColor(13, 115, 119); doc.rect(0, 0, 210, 22, 'F');
+  doc.setTextColor(255, 255, 255); doc.setFontSize(16); doc.setFont('helvetica', 'bold');
   doc.text('care brief', margin, 14);
-  doc.setFontSize(9);
-  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9); doc.setFont('helvetica', 'normal');
   doc.text('carebrief.ai', pageWidth - margin, 14, { align: 'right' });
-
-  y = 34;
-  doc.setTextColor(26, 26, 46);
-
+  y = 34; doc.setTextColor(26, 26, 46);
   const lines = briefText.split('\n');
-
   for (const line of lines) {
     if (y > 270) {
       doc.addPage();
-      // Repeat header
-      doc.setFillColor(13, 115, 119);
-      doc.rect(0, 0, 210, 22, 'F');
-      doc.setTextColor(255, 255, 255);
-      doc.setFontSize(16);
-      doc.setFont('helvetica', 'bold');
-      doc.text('care brief', margin, 14);
-      doc.setTextColor(26, 26, 46);
-      y = 34;
+      doc.setFillColor(13, 115, 119); doc.rect(0, 0, 210, 22, 'F');
+      doc.setTextColor(255, 255, 255); doc.setFontSize(16); doc.setFont('helvetica', 'bold');
+      doc.text('care brief', margin, 14); doc.setTextColor(26, 26, 46); y = 34;
     }
-
     if (!line.trim()) { y += 3; continue; }
-
-    // Section headers (all caps)
     if (line.match(/^[A-Z⚠\*][A-Z\s&\*\-·\/⚠]+$/) && line.length > 3) {
       if (line.startsWith('**') || line.includes('WHAT NOT')) {
-        doc.setFillColor(255, 245, 230);
-        doc.rect(margin - 2, y - 4, contentWidth + 4, 9, 'F');
+        doc.setFillColor(255, 245, 230); doc.rect(margin - 2, y - 4, contentWidth + 4, 9, 'F');
       } else if (line.includes('⚠') || line.includes('ALLERG')) {
-        doc.setFillColor(254, 242, 242);
-        doc.rect(margin - 2, y - 4, contentWidth + 4, 9, 'F');
+        doc.setFillColor(254, 242, 242); doc.rect(margin - 2, y - 4, contentWidth + 4, 9, 'F');
         doc.setTextColor(220, 38, 38);
-      } else {
-        doc.setTextColor(13, 115, 119);
-      }
-      doc.setFontSize(9);
-      doc.setFont('helvetica', 'bold');
+      } else { doc.setTextColor(13, 115, 119); }
+      doc.setFontSize(9); doc.setFont('helvetica', 'bold');
       const wrapped = doc.splitTextToSize(line.replace(/\*\*/g, ''), contentWidth);
-      doc.text(wrapped, margin, y);
-      y += wrapped.length * 5 + 4;
-      doc.setTextColor(26, 26, 46);
+      doc.text(wrapped, margin, y); y += wrapped.length * 5 + 4; doc.setTextColor(26, 26, 46);
     } else if (line.startsWith('"') && line.endsWith('"')) {
-      // Caregiver quote
-      doc.setFontSize(10);
-      doc.setFont('times', 'italic');
-      doc.setTextColor(13, 115, 119);
+      doc.setFontSize(10); doc.setFont('times', 'italic'); doc.setTextColor(13, 115, 119);
       const wrapped = doc.splitTextToSize(line, contentWidth);
-      doc.text(wrapped, margin, y);
-      y += wrapped.length * 5 + 3;
-      doc.setTextColor(26, 26, 46);
+      doc.text(wrapped, margin, y); y += wrapped.length * 5 + 3; doc.setTextColor(26, 26, 46);
     } else if (line.startsWith('---')) {
-      doc.setDrawColor(13, 115, 119);
-      doc.setLineWidth(0.3);
-      doc.line(margin, y, pageWidth - margin, y);
-      y += 4;
+      doc.setDrawColor(13, 115, 119); doc.setLineWidth(0.3);
+      doc.line(margin, y, pageWidth - margin, y); y += 4;
     } else {
-      doc.setFontSize(9);
-      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9); doc.setFont('helvetica', 'normal');
       const wrapped = doc.splitTextToSize(line.replace(/\*\*/g, ''), contentWidth);
-      doc.text(wrapped, margin, y);
-      y += wrapped.length * 4.5 + 1;
+      doc.text(wrapped, margin, y); y += wrapped.length * 4.5 + 1;
     }
   }
-
-  // Footer
   const pageCount = doc.internal.getNumberOfPages();
   for (let i = 1; i <= pageCount; i++) {
-    doc.setPage(i);
-    doc.setFontSize(7);
-    doc.setTextColor(150, 150, 150);
-    doc.setFont('helvetica', 'normal');
+    doc.setPage(i); doc.setFontSize(7); doc.setTextColor(150, 150, 150); doc.setFont('helvetica', 'normal');
     doc.text(`carebrief.ai  ·  Page ${i} of ${pageCount}  ·  Not medical advice`, pageWidth / 2, 288, { align: 'center' });
   }
-
   const today = new Date().toISOString().split('T')[0];
   doc.save(`carebrief-${today}.pdf`);
 }
 
-// ─────────────────────────────
-// INPUT HELPERS
-// ─────────────────────────────
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-}
-
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 140) + 'px';
-}
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+function autoResize(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 140) + 'px'; }
 </script>
 </body>
 </html>
