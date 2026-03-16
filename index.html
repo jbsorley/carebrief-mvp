@@ -530,7 +530,7 @@
 <div id="introScreen">
   <div class="intro-screen">
     <div class="intro-logo">care brief</div>
-    <p class="intro-tagline">You know your loved one better than any form ever could. Let's build something that proves it.</p>
+    <p class="intro-tagline">You know your loved one better than any form ever could. Let's make sure that knowledge gets heard.</p>
 
     <div class="mode-cards">
       <div class="mode-card" onclick="startMode('history')">
@@ -548,7 +548,7 @@
       <div class="mode-card" onclick="startMode('debrief')">
         <div class="card-icon">💬</div>
         <h3>Debrief</h3>
-        <p>Capture what happened before the blur wins.</p>
+        <p>Record what happened while it's still clear.</p>
         <div class="time-badge">~3–5 min</div>
       </div>
     </div>
@@ -655,7 +655,7 @@ const SECTIONS = [
 const MODE_CONFIG = {
   history: { title: 'History Brief', subtitle: 'Built once, updated always.' },
   visit: { title: 'Visit Brief', subtitle: 'For your upcoming appointment.' },
-  debrief: { title: 'Debrief', subtitle: 'Capture it before the blur wins.' },
+  debrief: { title: 'Debrief', subtitle: 'Record what happened while it\'s still clear.' },
 };
 
 // ─────────────────────────────
@@ -699,7 +699,7 @@ async function startConversation() {
     ? "I'm glad you're here.\n\nBefore we start — a quick note: Care Brief helps you organize and communicate what you already know. I'm not a medical professional and nothing I produce should be treated as medical advice, a diagnosis, or a clinical recommendation. I'm here to help your voice be heard more clearly.\n\nReady?"
     : currentMode === 'visit'
     ? "Welcome back.\n\nBefore we start — Care Brief is not a medical professional and nothing here is medical advice. I'm here to help your voice be heard more clearly.\n\nLet's get you ready for this appointment. Ready?"
-    : "You just did something hard. Before the blur takes over, let's capture it.\n\nCare Brief is not a medical professional — nothing here is medical advice. I'm just here to help you make sense of what happened.\n\nReady?";
+    : "You just did something hard. Let's take a moment to record it while it's still fresh.\n\nCare Brief is not a medical professional — nothing here is medical advice. I'm here to help you organize what happened so nothing gets lost.\n\nReady?";
 
   addMessage('ai', openingMessage);
 }
@@ -920,7 +920,7 @@ function showBriefPreview(text) {
 async function requestBrief() {
   const fakeInput = "Please generate my complete brief now based on everything we've discussed.";
   addMessage('user', fakeInput);
-  messages.push({ role: 'user', con4ent: fakeInput });
+  messages.push({ role: 'user', content: fakeInput });
   await getAIResponse();
 }
 
