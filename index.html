@@ -472,19 +472,15 @@
     line-height: 1.6;
   }
 
-  .legal-box {
+  .legal-note {
     max-width: 520px;
-    background: var(--white);
-    border: 1.5px solid var(--teal-mid);
-    border-radius: var(--radius-sm);
-    padding: 16px 20px;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--gray);
-    line-height: 1.7;
-    text-align: left;
-    margin-top: 8px;
+    opacity: 0.65;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 16px;
   }
-  .legal-box strong { color: var(--navy); }
 
   .legal-footer {
     text-align: center;
@@ -557,11 +553,7 @@
       </div>
     </div>
 
-    <div class="legal-box">
-      <p><strong>Before you begin:</strong> Care Brief is a conversational organizing tool for caregivers. It is <strong>not a medical service</strong>, a licensed clinical tool, or a substitute for professional medical, psychological, or legal advice. Nothing produced by Care Brief should be treated as a diagnosis, clinical recommendation, or medical record.</p>
-      <p style="margin-top:8px">If you or someone you care for is in immediate danger, call <strong>911</strong>. For mental health crisis support, call or text <strong>988</strong>.</p>
-      <p style="margin-top:8px;opacity:0.8">By continuing, you acknowledge that Care Brief is an organizational aid only.</p>
-    </div>
+    <p class="legal-note">Care Brief is an organizational aid, not medical advice or a clinical tool. Emergencies: call 911 · Mental health crisis: call or text 988.</p>
   </div>
 </div>
 
@@ -928,7 +920,7 @@ function showBriefPreview(text) {
 async function requestBrief() {
   const fakeInput = "Please generate my complete brief now based on everything we've discussed.";
   addMessage('user', fakeInput);
-  messages.push({ role: 'user', content: fakeInput });
+  messages.push({ role: 'user', con4ent: fakeInput });
   await getAIResponse();
 }
 
@@ -979,7 +971,7 @@ function downloadBrief() {
     if (!line.trim()) { y += 3; continue; }
 
     // Section headers (all caps)
-    if (line.match(/^[A-Zښ�\*][A-Z\s&\*\-·\/⚠]+$/) && line.length > 3) {
+    if (line.match(/^[A-Z⚠\*][A-Z\s&\*\-·\/⚠]+$/) && line.length > 3) {
       if (line.startsWith('**') || line.includes('WHAT NOT')) {
         doc.setFillColor(255, 245, 230);
         doc.rect(margin - 2, y - 4, contentWidth + 4, 9, 'F');
